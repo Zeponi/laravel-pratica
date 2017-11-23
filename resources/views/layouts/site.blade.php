@@ -17,9 +17,9 @@
         <header>
             @include('layouts._site._nav')
         </header>
-
-        @yield('content')
-
+        <main>
+            @yield('content')
+        </main>
         <footer class="page-footer blue">
             <div class="container">
                 <div class="row">
@@ -30,9 +30,9 @@
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Links</h5>
                         <ul>
-                            <li><a class="grey-text text-lighten-3" href="#!">Home</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Sobre</a></li>
-                            <li><a class="grey-text text-lighten-3" href="#!">Contato</a></li>
+                            <li><a class="grey-text text-lighten-3" href="{{ route('site.home') }}">Home</a></li>
+                            <li><a class="grey-text text-lighten-3" href="{{ route('site.sobre') }}">Sobre</a></li>
+                            <li><a class="grey-text text-lighten-3" href="{{ route('site.contato') }}">Contato</a></li>
                         </ul>
                     </div>
                 </div>
@@ -40,13 +40,13 @@
             <div class="footer-copyright">
                 <div class="container">
                     © 2017 Copyright Text
-                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    <a class="grey-text te              xt-lighten-4 right" href="#!">More Links</a>
                 </div>
             </div>
         </footer>
 
         <script src="{{asset('lib/jquery/dist/jquery.js')}}"></script>
-        <script src="{{asset('lib/materialize/dist/js/materialize.js')}}"></script>
+        <script src="    {{asset('lib/materialize/dist/js/materialize.js')}}"></script>
         <script src="{{asset('js/init.js')}}"></script>
     </body>
 </html>
