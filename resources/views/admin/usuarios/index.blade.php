@@ -31,14 +31,14 @@
                     <td>{{ $usuario->email }}</td>
                     <td>
                         <a class="btn orange" href="{{route('admin.usuarios.editar',$usuario->id) }}">Editar</a>
-                        <a class="btn red" href="#">Deletar</a>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
+<a class="btn red" href="javascript: if(confirm('Deletar esse registro ?')){window.location.href = '{{ route('admin.usuarios.deletar', $usuario->id) }}' }">Deletar</a>
+        </td>
+        </tr>
+        @endforeach
+        </tbody>
         </table>
-    </div>
-    <div class="row">
+</div>
+<div class="row">
         <a class="btn blue" href="{{route('admin.usuarios.adicionar')}}">Adicionar</a>
     </div>
 </div>
