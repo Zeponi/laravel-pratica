@@ -16,10 +16,10 @@ class CreatePaginasTable extends Migration {
             $table->string('titulo');
             $table->string('descricao');
             $table->text('texto');
-            $table->sring('imagem')->nulltable();
-            $table->sring('mapa')->nulltable();
-            $table->sring('email')->nulltable();
-            $table->sring('tipo');
+            $table->string('imagem')->nullable();
+            $table->string('mapa')->nullable();
+            $table->string('email')->nullable();
+            $table->string('tipo');
             $table->timestamps();
         });
     }
