@@ -45,5 +45,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin/usuarios/editar/{id}', ['as' => 'admin.usuarios.editar', 'uses' => 'Admin\UsuarioController@editar']);
     Route::put('/admin/usuarios/atualizar/{id}', ['as' => 'admin.usuarios.atualizar', 'uses' => 'Admin\UsuarioController@atualizar']);
     Route::get('/admin/usuarios/deletar/{id}', ['as' => 'admin.usuarios.deletar', 'uses' => 'Admin\UsuarioController@deletar']);
+    Route::get('/admin/paginas', ['as' => 'admin.paginas', 'uses' => 'Admin\PaginaController@index']);
+    Route::get('/admin/paginas/editar/{id}', ['as' => 'admin.paginas.editar', 'uses' => 'Admin\PaginaController@editar']);
+    Route::get('/admin/paginas/atualizar/{id}', ['as' => 'admin.paginas.atualizar', 'uses' => 'Admin\PaginaController@atualizar']);
 });
 
