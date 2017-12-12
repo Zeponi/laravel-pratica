@@ -13,8 +13,9 @@
             <div class="video-container">
                 {!! $pagina->mapa !!}
             </div>
+
             @else
-            <img class="responsive-img" src="{{ asset('img/modelo_img_home.jpg') }}">
+            <img class="responsive-img" src="{{ asset($pagina->imagem) }}">
             @endif
 
 
