@@ -20,7 +20,20 @@ class PaginaController extends Controller {
     }
 
     public function enviarContato(Request $request) {
-        //dd($request);
+
+        $pagina = Pagina::where('tipo', '=', 'contato')->first();
+        $email = $pagina->email;
+
+        \Mail::send('emails.contato', ['request' => $request], function($m) use($request, $email) {
+            $m->from($request['email'], $name = $request['nome']);
+            $m->replyTo($request['email'], $request['nome']);
+            $m->subject("Contato pelo Site");
+            $m->to($email, 'Contato do Site');
+        });
+
+        \Session::flash('mensagem', ['msg' => 'Contato enviado com sucesso!', 'class' => 'green white-text']);
+
+        return redirect()->route('site.contato');
     }
 
 }
