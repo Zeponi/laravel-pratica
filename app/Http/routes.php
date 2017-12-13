@@ -11,19 +11,27 @@
   |
  */
 
+
 Route::get('/', ['as' => 'site.home', function() {
         return view('site.home');
     }]);
 
 Route::get('/sobre', ['as' => 'site.sobre', 'uses' => 'Site\PaginaController@sobre']);
 
-Route::get('/contato', ['as' => 'site.contato', function() {
-        return view('site.contato');
-    }]);
+Route::get('/contato', ['as' => 'site.contato', 'uses' => 'Site\PaginaController@contato']);
+
+Route::get('/contato/enviar', ['as' => 'site.contato.enviar', 'uses' => 'Site\PaginaController@enviarContato']);
+
+Route::post('/contato/enviar', ['as' => 'site.contato.enviar', 'uses' => 'Site\PaginaController@enviarContato']);
+
+
 
 Route::get('/imovel/{id}/{titulo?}', ['as' => 'site.imovel', function() {
         return view('site.imovel');
     }]);
+
+
+
 
 Route::get('/admin/login', ['as' => 'admin.login', function() {
         return view('admin.login.index');
@@ -45,8 +53,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/admin/usuarios/editar/{id}', ['as' => 'admin.usuarios.editar', 'uses' => 'Admin\UsuarioController@editar']);
     Route::put('/admin/usuarios/atualizar/{id}', ['as' => 'admin.usuarios.atualizar', 'uses' => 'Admin\UsuarioController@atualizar']);
     Route::get('/admin/usuarios/deletar/{id}', ['as' => 'admin.usuarios.deletar', 'uses' => 'Admin\UsuarioController@deletar']);
+
     Route::get('/admin/paginas', ['as' => 'admin.paginas', 'uses' => 'Admin\PaginaController@index']);
     Route::get('/admin/paginas/editar/{id}', ['as' => 'admin.paginas.editar', 'uses' => 'Admin\PaginaController@editar']);
     Route::put('/admin/paginas/atualizar/{id}', ['as' => 'admin.paginas.atualizar', 'uses' => 'Admin\PaginaController@atualizar']);
 });
-
