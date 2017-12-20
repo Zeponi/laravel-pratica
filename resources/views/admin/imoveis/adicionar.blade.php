@@ -2,27 +2,32 @@
 
 @section('content')
 <div class="container">
-    <h2 class="center">Adicionar Cidades</h2>
-    <div class="row">
-        <nav>
-            <div class="nav-wrapper green">
-                <div class="col s12">
-                    <a href="{{ route('admin.principal') }}" class="breadcrumb">Início</a>
-                    <a href="{{route('admin.cidades')}}" class="breadcrumb">Lista de Tipos</a>
-                    <a class="breadcrumb">Adicionar Tipo</a>
-                </div>
-            </div>
-        </nav>
-    </div>
-    <div class="row">
-        <form action="{{ route('admin.cidades.salvar') }}" method="post">
+	<h2 class="center">Adicionar Imóvel</h2>
+	<div class="row">
+	 	<nav>
+		    <div class="nav-wrapper green">
+		      	<div class="col s12">
+			        <a href="{{ route('admin.principal')}}" class="breadcrumb">Início</a>
+			        <a href="{{route('admin.imoveis')}}" class="breadcrumb">Lista de Imóveis</a>
+			        <a class="breadcrumb">Adicionar Imóvel</a>
+		      	</div>
+		    </div>
+	  	</nav>
+	</div>
+	<div class="row">
+		<form action="{{ route('admin.imoveis.salvar') }}" method="post" enctype="multipart/form-data">
 
-            {{csrf_field()}}
-            @include('admin.cidades._form')
+		{{csrf_field()}}
+		@include('admin.imoveis._form')
 
-            <button class="btn blue">Adicionar</button>
-        </form>
-    </div>
+		<button class="btn blue">Adicionar</button>
+
+			
+		</form>
+			
+	</div>
+	
 </div>
+	
 
 @endsection
