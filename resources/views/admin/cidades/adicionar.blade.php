@@ -8,7 +8,7 @@
             <div class="nav-wrapper green">
                 <div class="col s12">
                     <a href="{{ route('admin.principal') }}" class="breadcrumb">Início</a>
-                    <a href="{{route('admin.cidades')}}" class="breadcrumb">Lista de Tipos</a>
+                    <a href="{{route('admin.cidades')}}" class="breadcrumb">Lista de Cidades</a>
                     <a class="breadcrumb">Adicionar Tipo</a>
                 </div>
             </div>
