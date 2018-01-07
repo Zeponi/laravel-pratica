@@ -4,7 +4,7 @@
 </div>
 
 <div class="input-field">
-    <input type="text" name="descricao" class="validate" value="{{ isset($registro->cesc) ? $registro->estado : '' }}">
+    <input type="text" name="descricao" class="validate" value="{{ isset($registro->descricao) ? $registro->descricao : '' }}">
     <label>Descrição</label>
 </div>
 
