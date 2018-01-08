@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="slider">
                     <ul class="slides">
-                        @foreach($galeria as $imagem)
+                    @foreach($galeria as $imagem)
                         <li>
                             <img src="{{ asset($imagem->imagem) }}">
                             <div class="caption {{ $direcaoImagem[rand(0,2)] }}">
@@ -21,7 +21,8 @@
                                 <h5>{{ $imagem->descricao }}</h5>
                             </div>
                         </li>
-                        @endforeach
+                    @endforeach
+                        
                     </ul>
                 </div>
             </div>
@@ -30,7 +31,7 @@
                 <button onclick="sliderNext()" class="btn blue">Próxima</button>
             </div>
             @else
-            <img class="responsive-img" src="{{ asset($imovel->imagem) }}" />
+            <img class="responsive-img" src="{{ asset($imovel->imagem) }}">
             @endif
         </div>
         <div class="col s12 m4">
@@ -38,13 +39,14 @@
             <blockquote>
                 {{ $imovel->descricao }}
             </blockquote>
-            <p><b>Código:</b> {{ $imovel->id }} </p>
-            <p><b>Status:</b> {{ $imovel->status }} </p>
-            <p><b>Tipo:</b> {{ $imovel->tipo->titulo }} </p>
-            <p><b>Enderço:</b> {{ $imovel->tipo->endereco }} </p>
-            <p><b>Cep:</b> {{ $imovel->cep }} </p>
-            <p><b>Cidade:</b> {{ $imovel->cidade->nome }} </p>
-            <p><b>Valor:</b> R$ {{ number_format($imovel->valor,2,",",".") }} </p>
+            <p><b>Código:</b> {{ $imovel->id }}</p>
+            <p><b>Status:</b> {{ $imovel->status }}</p>
+            <p><b>Tipo:</b> {{ $imovel->tipo->titulo }}</p>
+            <p><b>Dormitórios:</b> {{ $imovel->dormitorios }}</p>
+            <p><b>Endereço:</b> {{ $imovel->endereco }}</p>
+            <p><b>Cep:</b> {{ $imovel->cep }}</p>
+            <p><b>Cidade:</b> {{ $imovel->cidade->nome }}</p>
+            <p><b>Valor:</b> R$ {{ number_format($imovel->valor,2,",",".") }}</p>
             <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato</a>
         </div>
     </div>
