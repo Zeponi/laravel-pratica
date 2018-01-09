@@ -3,14 +3,15 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePapelsTable extends Migration {
-
+class CreatePapelsTable extends Migration
+{
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up() {
+    public function up()
+    {
         Schema::create('papels', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
@@ -24,7 +25,8 @@ class CreatePapelsTable extends Migration {
             $table->foreign('permissao_id')->references('id')->on('permissaos')->onDelete('cascade');
             $table->foreign('papel_id')->references('id')->on('papels')->onDelete('cascade');
 
-            $table->primary(['permissao_id', 'papel_id']);
+            $table->primary(['permissao_id','papel_id']);
+            
         });
 
         Schema::create('papel_user', function (Blueprint $table) {
@@ -33,7 +35,8 @@ class CreatePapelsTable extends Migration {
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('papel_id')->references('id')->on('papels')->onDelete('cascade');
-            $table->primary(['user_id', 'papel_id']);
+            $table->primary(['user_id','papel_id']);
+            
         });
     }
 
@@ -42,8 +45,10 @@ class CreatePapelsTable extends Migration {
      *
      * @return void
      */
-    public function down() {
+    public function down()
+    {
         Schema::drop('papels');
+        Schema::drop('papel_user');
+        Schema::drop('papel_permissao');
     }
-
 }
