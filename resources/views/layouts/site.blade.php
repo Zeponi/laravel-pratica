@@ -4,13 +4,29 @@
     <meta charset="utf-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>{{ isset($seo['titulo']) ? $seo['titulo'] : config('seo.titulo') }}</title>
+    <meta name="description" content="{{ isset($seo['descricao']) ? $seo['descricao'] : config('seo.descricao') }}">
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="summary">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ isset($seo['titulo']) ? $seo['titulo'] : config('seo.titulo') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ isset($seo['url']) ? $seo['url'] : config('app.url') }}" />
+    <meta property="og:image" content="{{ isset($seo['imagem']) ? $seo['imagem'] : config('seo.imagem') }}" />
+    <meta property="og:description" content="{{ isset($seo['descricao']) ? $seo['descricao'] : config('seo.descricao') }}" />
+
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="{{ asset('lib/icones/css/materialdesignicons.min.css') }}" media="all" rel="stylesheet" type="text/css" />
+
     <link rel="stylesheet" type="text/css" href="{{asset('lib/materialize/dist/css/materialize.css')}}">
 
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 
-    <title>Laravel</title>
+    
 
     
 </head>
@@ -41,6 +57,11 @@
       <div class="col l6 s12">
         <h5 class="white-text">Footer Content</h5>
         <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+        <p>
+          <a href="#"><i class="white-text mdi mdi-facebook mdi-24px"></i></a>
+          <a href="#"><i class="white-text mdi mdi-twitter mdi-24px"></i></a>
+          <a href="#"><i class="white-text mdi mdi-youtube-play mdi-24px"></i></a>
+        </p>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Links</h5>

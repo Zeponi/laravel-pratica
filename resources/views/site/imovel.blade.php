@@ -47,6 +47,11 @@
             <p><b>Cep:</b> {{ $imovel->cep }}</p>
             <p><b>Cidade:</b> {{ $imovel->cidade->nome }}</p>
             <p><b>Valor:</b> R$ {{ number_format($imovel->valor,2,",",".") }}</p>
+            <p>
+            <b>Compartilhar: </b>
+            <a target="_blank" href="http://www.facebook.com/sharer.php?u={{ isset($seo['url']) ? $seo['url'] : config('app.url') }}"><i class="blue-text mdi mdi-facebook mdi-24px"></i></a>
+            <a target="_blank" href="http://twitter.com/intent/tweet?text={{ isset($seo['titulo']) ? $seo['titulo'] : config('seo.titulo') }}&url={{ isset($seo['url']) ? $seo['url'] : config('app.url') }}&via=SiteDinâmico"><i class="blue-text mdi mdi-twitter mdi-24px"></i></a>
+            </p>
             <a class="btn deep-orange darken-1" href="{{ route('site.contato') }}">Entrar em contato</a>
         </div>
     </div>
