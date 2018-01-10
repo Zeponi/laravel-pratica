@@ -9,3 +9,4 @@
 - criar o arquivo database.sqlite
 - executar o comando php atisan migrate
 - executar o comando php artisan db:seed
+- descomentar as linhas do 34 ao 40 do arquivo \app\Providers\AuthServiceProvider.php

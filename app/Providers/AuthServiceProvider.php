@@ -6,8 +6,8 @@ use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\Permissao;
 
-class AuthServiceProvider extends ServiceProvider
-{
+class AuthServiceProvider extends ServiceProvider {
+
     /**
      * The policy mappings for the application.
      *
@@ -23,28 +23,25 @@ class AuthServiceProvider extends ServiceProvider
      * @param  \Illuminate\Contracts\Auth\Access\Gate  $gate
      * @return void
      */
-    public function boot(GateContract $gate)
-    {
+    public function boot(GateContract $gate) {
         $this->registerPolicies($gate);
 
         //$gate->define('listar-usuarios',
-            //function($user,$permissao){
-                //return true == $permissao ;
-            //}
+        //function($user,$permissao){
+        //return true == $permissao ;
+        //}
         //);
-
-        foreach ($this->getPermissoes() as $permissao) {
-            $gate->define($permissao->nome,
-                function($user) use($permissao){
-                    return $user->existePapel($permissao->papeis) || $user->existeAdmin();
-                }
-            );
-        }
-        
+//        foreach ($this->getPermissoes() as $permissao) {
+//            $gate->define($permissao->nome,
+//                function($user) use($permissao){
+//                    return $user->existePapel($permissao->papeis) || $user->existeAdmin();
+//                }
+//            );
+//        }
     }
 
-    public function getPermissoes()
-    {
+    public function getPermissoes() {
         return Permissao::with('papeis')->get();
     }
+
 }
